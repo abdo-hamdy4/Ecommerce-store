@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const jwt = require("jsonwebtoken")
 const config = require("config")
 
-mongoose.connect("mongodb://127.0.0.1:27017/").then(
+mongoose.connect("mongodb://127.0.0.1:27017/E-Commerce_Store").then(
     () => {
         console.log("connected to the users database");
     }
