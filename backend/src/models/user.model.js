@@ -1,50 +1,64 @@
-const mongoose = require('mongoose');
-const jwt = require("jsonwebtoken")
-const config = require("config")
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
 
-mongoose.connect("mongodb://127.0.0.1:27017/E-Commerce_Store").then(
-    () => {
-        console.log("connected to the users database");
-    }
-).catch((err) => {
-    console.log(err);
-});
-
-const userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema(
+  {
     name: {
-        type: String,
-        required: true,
-          }
-    ,
-        email: {//primary key
-        type: String,
-        required: true,
-        unique: true,
-        match: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-
-    }
-    ,
+      type: String,
+      required: [true, 'Name is required'],
+    },
+    email: {
+      type: String,
+      required: [true, 'Email is required'],
+      unique: true,
+      lowercase: true,
+      trim: true,
+    },
     password: {
-        type: String,
-        required: true,
-        minLength: 8,
+      type: String,
+      required: [true, 'Password is required'],
+      minlength: [6, 'Password must be at least 6 characters long'],
     },
-    userRole: {
-        type: Number, // 1-> Admin , 2->User 
-        required: true
-        , enum: [1, 2]
+    cartItems: [
+      {
+        quantity: {
+          type: Number,
+          default: 1,
+        },
+        product: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Product',
+        },
+      },
+    ],
+    role: {
+      type: String,
+      enum: ['customer', 'admin'],
+      default: 'customer',
     },
-    img: {
-        type: Buffer,
-    },
-    
+  },
+  {
+    timestamps: true,
+  }
+);
+
+// Pre-save hook to hash password before saving to database
+userSchema.pre('save', async function (next) {
+  if (!this.isModified('password')) return next();
+
+  try {
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+  } catch (error) {
+    next(error);
+  }
 });
 
-userSchema.method("genAuthToken", function () {
-    const token = jwt.sign({ userid: this._id, userRole: this.userRole }, config.get("jwtsec"))
-    return token;
-}
-)
-const user = mongoose.model("users", userSchema);
+userSchema.methods.comparePassword = async function (password) {
+  return bcrypt.compare(password, this.password);
+};
 
-module.exports = user
+const User = mongoose.model('User', userSchema);
+
+export default User;
