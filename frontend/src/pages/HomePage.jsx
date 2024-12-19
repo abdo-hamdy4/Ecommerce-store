@@ -1,5 +1,5 @@
 
-<<<<<<< HEAD
+
 import CategoryItem from "../components/CategoryItem";
 import "./HomePage.css"; 
 
@@ -34,17 +34,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
- 
-=======
-
-const HomPage = () => {
-  return (
-    <div>
-      homepage
-    </div>
-  )
-}
-
-export default HomPage
-
->>>>>>> 13c018b7fd425e89ccab834c3a6139cd18ca6b77
