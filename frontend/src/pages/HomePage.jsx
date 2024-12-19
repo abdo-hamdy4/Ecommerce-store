@@ -1,5 +1,4 @@
 
-
 import CategoryItem from "../components/CategoryItem";
 import "./HomePage.css"; 
 
@@ -34,3 +33,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+ 
