@@ -14,28 +14,28 @@ const Navbar = () => {
             <Link to={"/"} className="nav-link">Home</Link>
             {user && (
               <Link to="/cart" className="cart-link nav-link">
-                <ShoppingCart className="inline-block mr-1" size={20} />
-                <span className="hidden sm:inline">Cart</span>
+                <ShoppingCart className='icon-size1' />
+                <span>Cart</span>
               </Link>
             )}
             {isAdmin && (<Link to={"/secret-dashboard"} className="admin-link">
-            <Lock size={20}/>
-            <span className="hidden sm:inline">Dashboard</span>
+            <Lock/>
+            <span >Dashboard</span>
             </Link>)}
 
             {user ? (
-              <button className="button">
-                <LogOut size={18} />
-                <span className="hidden sm:inline ml-2">Log Out</span>
+              <button className="nav-button">
+                <LogOut/>
+                <span>Log Out</span>
               </button>
             ) : (
               <>
-                <Link to="/signup" className="button signup-button">
-                  <UserPlus className="mr-2" size={18} />
+                <Link to="/signup" className="nav-button signup-button">
+                  <UserPlus />
                   Sign Up
                 </Link>
-                <Link to="/login" className="button">
-                  <LogIn className="mr-2" size={18} />
+                <Link to="/login" className="nav-button">
+                  <LogIn/>
                   Login
                 </Link>
               </>

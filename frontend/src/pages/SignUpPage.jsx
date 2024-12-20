@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { UserPlus, Mail, Lock, User, ArrowRight, Loader } from "lucide-react";
 import { motion } from "framer-motion";
 const SignUpPage = () => {
-    const loading=true;
+    const loading=false;
     const [formData, setFormData] = useState({
 		name: "",
 		email: "",
@@ -19,7 +19,7 @@ const SignUpPage = () => {
         console.log(formData)
       };
   return (
-    <div className="page-container">
+    <div className="signup-page-container">
     <motion.div
       className="motion-container"
       initial={{ opacity: 0, y: -20 }}
