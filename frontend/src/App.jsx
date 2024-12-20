@@ -1,25 +1,30 @@
-
 import { Navigate, Route, Routes } from "react-router-dom";
+import './App.css'
+
 import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
-import CategoryPage from "./pages/CategoryPage"
-import "./App.css";
-
-import Navbar from "./components/Navbar";
+import CategoryPage from "./pages/CategoryPage";
+import HomePage from './pages/HomePage'
+import SignUpPage from './pages/SignUpPage'
+import LoginPage from './pages/LoginPage'
+import Navbar from './components/Navbar'
+import { Toaster } from 'react-hot-toast'
 import { useUserStore } from "./stores/useUserStore";
 import { useEffect } from "react";
 import LoadingSpinner from "./components/LoadingSpinner";
+import CategoryPage from "./pages/CategoryPage";
+
+
 
 function App() {
-  const { user = null, checkAuth, checkingAuth } = useUserStore();
+  const { user, checkAuth, checkingAuth } = useUserStore();
+	useEffect(() => {
+		checkAuth();
+	}, [checkAuth]);
 
-  useEffect(() => {
-    checkAuth();
-  }, [checkAuth]);
-
-  if (checkingAuth) return <LoadingSpinner />;
+	if (checkingAuth) return <LoadingSpinner />;
 
 
   return (
@@ -30,24 +35,14 @@ function App() {
       <div className="content">
     <Navbar/>
     <Routes>
-    <Route path="/" element={<HomePage />} />
-          <Route
-            path="/signup"
-            element={!user ? <SignUpPage /> : <Navigate to="/" />}
-          />
-          <Route
-            path="/login"
-            element={!user ? <LoginPage /> : <Navigate to="/" />}
-          />
-          <Route
-            path="/secret-dashboard"
-            element={
-              user?.role === "admin" ? <AdminPage /> : <Navigate to="/login" />
-            }
-          />
-           <Route path='/category/:category' element={<CategoryPage />} />
+    <Route path='/' element={<HomePage/>}></Route>
+    <Route path='/signup' element={!user ? <SignUpPage /> : <Navigate to='/' />} />
+    <Route path='/login' element={!user ? <LoginPage /> : <Navigate to='/' />} />
+    <Route path='/secret-dashboard' element={user?.role === "admin" ? <AdminPage /> : <Navigate to='/login' />}/>
+    <Route path='/category/:category' element={<CategoryPage />} />
     </Routes>
     </div>
+    <Toaster/>
     </div>
 
 
