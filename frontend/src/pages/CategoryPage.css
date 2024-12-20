@@ -1,0 +1,105 @@
+/* تنسيقات الصفحة */
+.min-h-screen {
+    min-height: 100vh;
+  }
+  
+  .max-w-screen-xl {
+    max-width: 1280px;
+  }
+  
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .sm\\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .lg\\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  /* تنسيق العنوان */
+  .text-4xl {
+    font-size: 2.25rem;
+  }
+  
+  .sm\\:text-5xl {
+    font-size: 3rem;
+  }
+  
+  .font-bold {
+    font-weight: 700;
+  }
+  
+  .text-emerald-400 {
+    color: #34d399;
+  }
+  
+  .mb-8 {
+    margin-bottom: 2rem;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  /* تنسيق الحاوية التي تحتوي على المنتجات */
+  .grid {
+    display: grid;
+  }
+  
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .sm\\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .lg\\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .xl\\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  
+  .gap-6 {
+    gap: 1.5rem;
+  }
+  
+  .justify-items-center {
+    justify-items: center;
+  }
+  
+  /* تنسيق النص عند عدم وجود منتجات */
+  .text-3xl {
+    font-size: 1.875rem;
+  }
+  
+  .font-semibold {
+    font-weight: 600;
+  }
+  
+  .text-gray-300 {
+    color: #d1d5db;
+  }
+  
+  .col-span-full {
+    grid-column: span 4 / span 4;
+  }
+  
