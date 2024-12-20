@@ -4,6 +4,9 @@ import './App.css'
 import HomePage from './pages/HomePage'
 import SignUpPage from './pages/SignUpPage'
 import LoginPage from './pages/LoginPage'
+
+import CategoryPage from "./pages/CategoryPage"
+
 import Navbar from './components/Navbar'
 
 
@@ -20,6 +23,8 @@ function App() {
     <Route path='/' element={<HomePage/>}></Route>
     <Route path='/signup' element={<SignUpPage/>}></Route>
     <Route path='/login' element={<LoginPage/>}></Route>
+
+    <Route path='/category/:category' element={<CategoryPage />} />
     </Routes>
     </div>
     </div>
