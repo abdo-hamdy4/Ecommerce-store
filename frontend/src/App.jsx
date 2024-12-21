@@ -1,9 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import './App.css'
 
-import HomePage from "./pages/HomePage";
-import SignUpPage from "./pages/SignUpPage";
-import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
 import CategoryPage from "./pages/CategoryPage";
 import HomePage from './pages/HomePage'
@@ -14,7 +11,6 @@ import { Toaster } from 'react-hot-toast'
 import { useUserStore } from "./stores/useUserStore";
 import { useEffect } from "react";
 import LoadingSpinner from "./components/LoadingSpinner";
-import CategoryPage from "./pages/CategoryPage";
 
 
 
