@@ -1,10 +1,10 @@
-
+import { useUserStore } from "../stores/useUserStore";
 import './navbar.css'
 import { ShoppingCart, UserPlus, LogIn, LogOut, Lock } from "lucide-react";
 import { Link } from "react-router-dom"
 const Navbar = () => {
-    const user=false;
-    const isAdmin=false;
+    const { user, logout } = useUserStore();
+    const isAdmin = user?.role === "admin";
   return (
 <header className="header">
     <div className="container">
@@ -24,7 +24,7 @@ const Navbar = () => {
             </Link>)}
 
             {user ? (
-              <button className="nav-button">
+              <button className="nav-button" onClick={logout}>
                 <LogOut/>
                 <span>Log Out</span>
               </button>
