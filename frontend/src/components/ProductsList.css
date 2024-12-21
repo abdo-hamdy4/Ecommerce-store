@@ -1,0 +1,92 @@
+.products-container {
+    background-color: #2d3748; /* bg-gray-800 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
+    border-radius: 0.75rem; /* rounded-lg */
+    overflow: hidden;
+    max-width: 64rem; /* max-w-4xl */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .table {
+    width: 100%; /* min-w-full */
+    border-collapse: collapse;
+  }
+  
+  .table-header {
+    background-color: #4a5568; /* bg-gray-700 */
+  }
+  
+  .table-header th {
+    padding: 1rem; /* px-6 py-3 */
+    text-align: left;
+    font-size: 0.75rem; /* text-xs */
+    font-weight: 500; /* font-medium */
+    color: #e2e8f0; /* text-gray-300 */
+    text-transform: uppercase; /* uppercase */
+    letter-spacing: 0.05em; /* tracking-wider */
+  }
+  
+  .table-body {
+    background-color: #2d3748; /* bg-gray-800 */
+  }
+  
+  .table-row {
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .table-row:hover {
+    background-color: #4a5568; /* hover:bg-gray-700 */
+  }
+  
+  .table-cell {
+    padding: 1rem; /* px-6 py-4 */
+  }
+  
+  .product-image {
+    width: 2.5rem; /* w-10 */
+    height: 2.5rem; /* h-10 */
+    border-radius: 50%; /* rounded-full */
+    object-fit: cover; /* object-cover */
+  }
+  
+  .product-name {
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: white;
+  }
+  
+  .product-price, .product-category {
+    font-size: 0.875rem; /* text-sm */
+    color: #e2e8f0; /* text-gray-300 */
+  }
+  
+  .featured-button {
+    padding: 0.25rem; /* p-1 */
+    border-radius: 50%; /* rounded-full */
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .featured-button.active {
+    background-color: #facc15; /* bg-yellow-400 */
+    color: #1a202c; /* text-gray-900 */
+  }
+  
+  .featured-button.inactive {
+    background-color: #4a5568; /* bg-gray-600 */
+    color: #e2e8f0; /* text-gray-300 */
+  }
+  
+  .featured-button:hover {
+    background-color: #fbbf24; /* hover:bg-yellow-500 */
+  }
+  
+  .delete-button {
+    color: #f87171; /* text-red-400 */
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .delete-button:hover {
+    color: #fbbf24; /* hover:text-red-300 */
+  }
+  

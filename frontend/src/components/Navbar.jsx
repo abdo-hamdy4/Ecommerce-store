@@ -6,7 +6,10 @@ import { useCartStore } from "../stores/useCartStore";
 const Navbar = () => {
     const { user, logout } = useUserStore();
     const isAdmin = user?.role === "admin";
+<<<<<<< HEAD
     const { cart } = useCartStore();
+=======
+>>>>>>> f54d068645c7cfc89641b7641f3d50eb7eadd425
   return (
 <header className="header">
     <div className="container">
