@@ -2,10 +2,14 @@ import React from "react";
 import toast from "react-hot-toast";
 import { ShoppingCart } from "lucide-react";
 import "./ProductCard.css"; // استيراد ملف الـ CSS
-import { useUserStore } from "../stores/useUserStore";
+import { useUserStore } from "../stores/useUserStore"; // تأكد من أن المسار صحيح
+import { useCartStore } from "../stores/useCartStore"; // تأكد من أن المسار صحيح
 
-const ProductCard = ({ product, user: propUser, addToCart }) => {
-  const { user: storeUser } = useUserStore();
+
+const ProductCard = ({ product }) => {
+	const { user } = useUserStore();
+	const { addToCart } = useCartStore();
+
     const handleAddToCart = () => {
         if (!user) {
             toast.error("Please login to add products to cart", { id: "login" });

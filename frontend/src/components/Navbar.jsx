@@ -2,18 +2,12 @@ import { useUserStore } from "../stores/useUserStore";
 import './navbar.css'
 import { ShoppingCart, UserPlus, LogIn, LogOut, Lock } from "lucide-react";
 import { Link } from "react-router-dom"
-import { useCartStore } from "../stores/useCartStore";
 const Navbar = () => {
     const { user, logout } = useUserStore();
     const isAdmin = user?.role === "admin";
-<<<<<<< HEAD
-    const { cart } = useCartStore();
-=======
->>>>>>> f54d068645c7cfc89641b7641f3d50eb7eadd425
   return (
 <header className="header">
     <div className="container">
-      
         <div className="navbar">
         <Link to="/" className="logo">E-Commerce</Link>
         <nav className="nav-links">
@@ -21,7 +15,6 @@ const Navbar = () => {
             {user && (
               <Link to="/cart" className="cart-link nav-link">
                 <ShoppingCart className='icon-size1' />
-               {cart.length}
                 <span>Cart</span>
               </Link>
             )}
